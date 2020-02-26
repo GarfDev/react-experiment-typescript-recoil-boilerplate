@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production",
     "check-types": "tsc",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix --max-warnings 0"
   },
   "dependencies": {
     "react": "^16.12.0",
