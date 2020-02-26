@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /Users/garfield/.yarn/bin/yarn.js run --silent husky-run pre-commit
+  /usr/local/bin/node /Users/garfield/.yarn/bin/yarn.js add reacr-router-dom
 
 PATH: 
-  /Library/Developer/CommandLineTools/usr/libexec/git-core:/Users/garfield/.yarn/bin:/Users/garfield/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Users/garfield/.yarn/bin:/Users/garfield/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.22.0
@@ -14,12 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/garfield/Desktop/projects/reminder/package.json: Unexpected token ] in JSON at position 602
-      at JSON.parse (<anonymous>)
-      at /Users/garfield/.yarn/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/Users/garfield/.yarn/lib/cli.js:310:30)
-      at /Users/garfield/.yarn/lib/cli.js:321:13
+  Error: https://registry.yarnpkg.com/reacr-router-dom: Not found
+      at Request.params.callback [as _callback] (/Users/garfield/.yarn/lib/cli.js:66975:18)
+      at Request.self.callback (/Users/garfield/.yarn/lib/cli.js:140727:22)
+      at Request.emit (events.js:223:5)
+      at Request.<anonymous> (/Users/garfield/.yarn/lib/cli.js:141699:10)
+      at Request.emit (events.js:223:5)
+      at IncomingMessage.<anonymous> (/Users/garfield/.yarn/lib/cli.js:141621:12)
+      at Object.onceWrapper (events.js:312:28)
+      at IncomingMessage.emit (events.js:228:7)
+      at endReadableNT (_stream_readable.js:1185:12)
+      at processTicksAndRejections (internal/process/task_queues.js:81:21)
 
 npm manifest: 
   {
@@ -45,6 +50,7 @@ npm manifest:
       "app/**/*.{ts,tsx,jsx,vue}": [
         "prettier --write",
         "eslint --fix",
+        "git commit"
       ]
     },
   
