@@ -20,7 +20,8 @@
   "lint-staged": {
     "app/**/*.{ts,tsx,jsx,vue}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "git commit"
     ]
   },
 
