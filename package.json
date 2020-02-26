@@ -12,8 +12,13 @@
     "eslint": "eslint src --ext .ts",
     "precommit": "lint-staged"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },  
   "lint-staged": {
-    "src/**/*.{ts,tsx,jsx,vue}": [
+    "app/**/*.{ts,tsx,jsx,vue}": [
       "prettier --write",
       "eslint --fix",
       "git add"
