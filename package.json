@@ -8,11 +8,22 @@
     "start": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production",
     "check-types": "tsc",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix --max-warnings 0"
+    "lint": "tsc --noEmit && eslint 'app/**/*.{js,ts,tsx}' --quiet --fix --max-warnings 0",
+    "eslint": "eslint src --ext .ts",
+    "precommit": "lint-staged"
   },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,jsx,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+
   "dependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -23,6 +34,7 @@
     "@babel/preset-typescript": "^7.8.3",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
+    "@types/styled-components": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "babel-loader": "^8.0.6",

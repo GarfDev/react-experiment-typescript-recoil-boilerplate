@@ -7,6 +7,5 @@ function App(): JSX.Element {
   );
 }
 
-const initialNode = document.getElementById('app');
 
-ReactDOM.render(<App />, initialNode);
+ReactDOM.render(<App />, document.getElementById('app'));

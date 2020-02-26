@@ -28,5 +28,5 @@
       "language": "typescriptreact"
     }
   ],
-  "prettier.eslintIntegration": true,
+  "prettier.eslintIntegration": true
 }
