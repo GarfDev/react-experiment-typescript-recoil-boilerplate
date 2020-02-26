@@ -18,6 +18,7 @@
 		"esModuleInterop": true,
 		// use typescript to transpile jsx to js
 		"jsx": "react",
+		"sourceMap": true,
 		"baseUrl": "./app",
 		"lib": [
 			"es2015",
@@ -37,6 +38,8 @@
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
 		"forceConsistentCasingInFileNames": true,
-		"importHelpers": true
+		"importHelpers": true,
 	},
+	"include": ["app/**/*"],
+	"exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts"],
 }
