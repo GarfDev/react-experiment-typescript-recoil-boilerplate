@@ -21,7 +21,7 @@
     "app/**/*.{ts,tsx,jsx,vue}": [
       "prettier --write",
       "eslint --fix",
-      "git add"
+      "git commit"
     ]
   },
 
