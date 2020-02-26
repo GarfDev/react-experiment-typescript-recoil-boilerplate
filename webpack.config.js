@@ -18,8 +18,9 @@ module.exports = {
       errors: false,
       errorDetails: false,
       warnings: false,
-      publicPath: false
-    },  
+      publicPath: false,
+    },
+  },
   entry: './app/app',
   output: {
     path: path.join(__dirname, '/build'),
