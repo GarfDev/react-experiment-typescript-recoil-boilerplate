@@ -10,7 +10,7 @@
     "build": "webpack --mode production",
     "check-types": "tsc",
     "lint": "tsc --noEmit && eslint 'app/**/*.{ts,tsx}' --quiet --fix --max-warnings 0",
-    "eslint": "eslint src --ext .ts",
+    "eslint": "eslint 'app/**/*.{ts,tsx}' --quiet --fix",
     "precommit": "lint-staged"
   },
   "husky": {

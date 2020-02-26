@@ -10,8 +10,14 @@ module.exports = {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
-  plugins: ['@typescript-eslint', 'react-hooks', 'prettier'],
+  plugins: ['@typescript-eslint', 'react-hooks', 'prettier', 'react'],
   globals: {
+  },
+  settings: {
+    react: {
+      pragma: "React",
+      version: "detect",
+    }
   },
   rules: {
     'prettier/prettier': [
@@ -24,7 +30,6 @@ module.exports = {
         tabWidth: 2,
       },
     ],
-    // 一个缩进必须用两个空格替代
     indent: [
       'error',
       2,
