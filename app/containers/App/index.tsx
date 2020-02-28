@@ -1,5 +1,7 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import HomepageRoute from '../Homepage/route';
 
 export default function App() {
-  return <h1>Welcome to Vietnam</h1>;
+  return <Route exact path="/" component={HomepageRoute} />;
 }
