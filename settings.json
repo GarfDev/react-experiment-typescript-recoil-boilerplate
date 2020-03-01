@@ -28,5 +28,7 @@
       "language": "typescriptreact"
     }
   ],
-  "prettier.eslintIntegration": true
+  "prettier.eslintIntegration": true,
+  "editor.formatOnSave": true,
+  "autoFix": true
 }
