@@ -95,7 +95,7 @@ export default function Homepage() {
   const [inputData, setInputData] = React.useState('');
   const [productData, setProductData] = React.useState(initialValue);
 
-  const handleOnChange = event => {
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     event.stopPropagation();
     setInputData(event.target.value);
