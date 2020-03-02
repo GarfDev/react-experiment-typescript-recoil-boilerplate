@@ -66,7 +66,7 @@ const InfoContainer = styled.div`
   margin-top: 40px;
   display: flex;
   flex-flow: column wrap;
-  justify-content: flex-start;
+  justify-content: flex-end;
   background-image: url(${(props: InfoContainerProps) => props.imgURL});
   background-color: pink;
   background-blend-mode: multiply;
