@@ -1,34 +1,31 @@
 import { ContainerState, ContainerActions } from './types';
-import ActionTypes from './constants';
+import ActionTypes from './actionTypes';
 
 // The initial state of the App
 export const initialState: ContainerState = {
-  loading: false,
-  error: false,
-  currentUser: {},
+  currentUser: {
+    firstName: '',
+    lastName: '',
+    gender: 'male',
+    savedItems: [],
+  },
 };
 
 // Take this container's state (as a slice of root state), this container's actions and return new state
 function appReducer(state: ContainerState = initialState, action: ContainerActions): ContainerState {
   switch (action.type) {
-    case ActionTypes.LOGIN:
+    case ActionTypes.SESSION_VERIFY:
       return {
         currentUser: state.currentUser,
-        loading: true,
-        error: false,
       };
-    case ActionTypes.LOGIN_SUCCESS:
+    case ActionTypes.SESSION_VERIFY_SUCCESS:
       return {
-        currentUser: action.payload.username,
-        loading: false,
-        error: state.error,
+        currentUser: action.payload.data,
       };
-    case ActionTypes.LOGIN_ERROR:
+    case ActionTypes.SESSION_VERIFY_FAILED:
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { error, loading, ...rest } = state;
+      const { ...rest } = state;
       return {
-        error: action.payload,
-        loading: false,
         ...rest,
       };
     default:

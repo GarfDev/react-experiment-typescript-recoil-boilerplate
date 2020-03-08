@@ -11,7 +11,7 @@ import history from './utils/history';
 import { Provider } from 'react-redux';
 import configureStore from './configStore';
 import LanguagePropvier from './containers/LanguagePropvier';
-
+import GlobalStyle from './globalStyles';
 // configureStore
 const initialState = {};
 const store = configureStore(initialState, history);
@@ -22,6 +22,7 @@ ReactDOM.render(
     <LanguagePropvier>
       <ConnectedRouter history={history}>
         <App />
+        <GlobalStyle />
       </ConnectedRouter>
     </LanguagePropvier>
   </Provider>,

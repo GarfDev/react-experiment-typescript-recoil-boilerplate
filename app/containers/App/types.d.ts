@@ -4,10 +4,21 @@ import { ApplicationRootState } from '../../types';
 
 /* --- STATE --- */
 
-interface AppState {
-  readonly loading: boolean;
-  readonly error?: object | boolean;
-  readonly currentUser: any;
+interface SavedItem {
+  title: string;
+  price: number;
+  content: string;
+  image_url: string;
+  url: string;
+}
+interface CurrentUser {
+  firstName: string;
+  lastName: string;
+  gender: 'male' | 'female';
+  savedItems: SavedItem[];
+}
+interface SessionState {
+  readonly currentUser: CurrentUser;
 }
 
 /* --- ACTIONS --- */
@@ -16,7 +27,7 @@ type AppActions = ActionType<typeof actions>;
 /* --- EXPORTS --- */
 
 type RootState = ApplicationRootState;
-type ContainerState = AppState;
+type ContainerState = SessionState;
 type ContainerActions = AppActions;
 
 export { RootState, ContainerState, ContainerActions };

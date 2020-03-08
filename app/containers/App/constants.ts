@@ -1,7 +1,8 @@
-enum ActionTypes {
-  LOGIN = 'App/LOGIN',
-  LOGIN_SUCCESS = 'App/LOGIN_SUCCESS',
-  LOGIN_ERROR = 'App/LOGIN_ERROR',
+export interface SessionVerifyParams {
+  accessToken: string;
+  refreshToken: string;
 }
 
-export default ActionTypes;
+export enum ApiConfig {
+  SESSIONVERIFY = 'https"//localhost:3000/session',
+}
