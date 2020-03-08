@@ -1,4 +1,4 @@
-import { call, put, select } from 'redux-saga/effects';
+import { call } from 'redux-saga/effects';
 import { ApiResponse, ApiParams } from './types';
 import apiCaller from './index';
 

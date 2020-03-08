@@ -6,7 +6,7 @@ export default function apiCaller<T>({ method = 'get', route, headers = {}, data
   const accessToken = Cookies.get('accessToken');
   const defaultHeader = { 'Content-Type': 'application/json', Accept: 'application/json' };
   const authorizationHeader = accessToken ? { Authorization: accessToken } : {};
-  return axios(process.env.REACT_APP_BACKEND_URL + route, {
+  return axios(route, {
     method,
     headers: {
       ...defaultHeader,
