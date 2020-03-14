@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { fetchTikiProduct } from './actions';
 import styled from 'styled-components';
 import P from '../../global/components/P';
 
@@ -92,6 +93,7 @@ const initialValue: InitialState = {
 };
 
 export default function Homepage() {
+  const dispatch = useDispatch();
   const [inputData, setInputData] = React.useState('');
   const [productData, setProductData] = React.useState(initialValue);
 
@@ -102,9 +104,9 @@ export default function Homepage() {
   };
 
   function tikiParser(data: string) {
-    const titleRegex = /<meta property\="og\:title" content\="(.*?)"/;
-    const priceRegex = /<span id\="span-price">(.*?)</;
-    const imageRegex = /<img id="product-magiczoom" class="product-magiczoom" itemprop="image"\D*src="(.*?)"/;
+    const titleRegex = /><div class="product-name"><span>(.*?)</;
+    const priceRegex = /<span class="product-price__current-price">(.*?)</;
+    const imageRegex = /large_url":"(.*?)"/;
     return {
       title: titleRegex.exec(data)?.[1],
       price: priceRegex.exec(data)?.[1],
@@ -112,12 +114,20 @@ export default function Homepage() {
     };
   }
 
-  const handleOnsubmit = async () => {
-    const response = await axios.get('https://cors-anywhere.herokuapp.com/' + inputData, {
-      headers: {},
-    });
-    const result = tikiParser(response.data);
-    setProductData(result);
+  // const handleOnsubmit = async () => {
+  //   const response = await axios.get('https://cors-anywhere.herokuapp.com/' + inputData, {
+  //     headers: {},
+  //   });
+  //   const result = tikiParser(response.data);
+  //   setProductData(result);
+  // }
+
+  const handleOnsubmit = () => {
+    const callback = (response: any) => {
+      const result = tikiParser(response.response);
+      setProductData(result);
+    };
+    dispatch(fetchTikiProduct(inputData, callback));
   };
 
   return (

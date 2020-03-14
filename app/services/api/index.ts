@@ -4,12 +4,10 @@ import { ApiParams } from './types';
 
 export default function apiCaller<T>({ method = 'get', route, headers = {}, data }: ApiParams): Promise<T[] | null> {
   const accessToken = Cookies.get('accessToken');
-  const defaultHeader = { 'Content-Type': 'application/json', Accept: 'application/json' };
   const authorizationHeader = accessToken ? { Authorization: accessToken } : {};
   return axios(route, {
     method,
     headers: {
-      ...defaultHeader,
       ...authorizationHeader,
       ...headers,
     },

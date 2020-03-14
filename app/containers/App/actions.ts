@@ -2,7 +2,7 @@ import { action } from 'typesafe-actions';
 import ActionTypes from './actionTypes';
 import { SessionVerifyParams } from './constants';
 
-export const sessionVerify = (params: SessionVerifyParams, callback?: (response: any) => void, data: any) => {
+export const sessionVerify = (params: SessionVerifyParams, data: any, callback?: (response: any) => void) => {
   return action(ActionTypes.SESSION_VERIFY, {
     params,
     callback,

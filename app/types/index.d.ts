@@ -1,6 +1,6 @@
 import { Reducer, Store } from 'redux';
 import { RouterState } from 'connected-react-router';
-import { ContainerState as LanguageProviderState } from 'containers/LanguageProvider/types';
+import { ContainerState as LanguageProviderState } from '../containers/LanguagePropvier/types';
 import { ContainerState as SessionState } from 'containers/App/types';
 
 export interface InjectedStore extends Store {
@@ -15,7 +15,7 @@ export interface InjectReducerParams {
 }
 
 export interface InjectSagaParams {
-  key: keyof ApplicationRootState;
+  key: string;
   saga: () => IterableIterator<any>;
   mode?: string | undefined;
 }

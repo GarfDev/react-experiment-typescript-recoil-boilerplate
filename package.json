@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "bundle": "webpack",
-    "start": "webpack-dev-server --mode development --hot",
+    "start": "webpack-dev-server --mode development --hot -d",
     "test": "jest --passWithNoTests",
     "build": "webpack --mode production",
     "check-types": "tsc",
