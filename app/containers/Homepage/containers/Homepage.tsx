@@ -5,6 +5,7 @@ import { ProductInitialState } from '../types';
 import { fetchTikiProduct } from '../actions';
 import { tikiParser } from '../adapters';
 import { productInitialState } from '../constants';
+import Header from './Header';
 import SearchBar from './Search';
 import InfoContainer from './Info';
 
@@ -30,6 +31,7 @@ export default function Homepage() {
   };
   return (
     <HomepageWrapper>
+      <Header />
       <SearchBar handleOnChange={handleOnChange} handleOnSubmit={handleOnsubmit} />
       {productData.title && (
         <InfoContainer title={productData.title} price={productData.price} imgURL={productData.imgURL} />

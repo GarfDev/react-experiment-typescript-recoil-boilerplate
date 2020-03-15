@@ -19,7 +19,7 @@
 		// use typescript to transpile jsx to js
 		"jsx": "react",
 		"sourceMap": true,
-		"baseUrl": "./app",
+    "baseUrl": "./",
 		"lib": [
 			"es2015",
 			"dom.iterable",

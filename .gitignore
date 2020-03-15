@@ -4,3 +4,4 @@ app/**/*.map
 coverage
 yarn-error.log
 yarn.lock
+.env

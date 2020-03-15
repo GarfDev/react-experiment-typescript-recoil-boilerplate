@@ -38,7 +38,7 @@ const StyledInput = styled.input`
   font-family: 'Courier New', Courier, monospace;
   color: pink;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 530;
   width: 400px;
   padding: 15px 25px;
   border: 2px solid pink;
@@ -56,8 +56,14 @@ const StyledButton = styled.button`
   color: pink;
   background-color: white;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 530;
   border: 2px solid pink;
   border-radius: 27px;
   margin: 10px;
+  &:hover {
+    box-shadow: inset 0px 0px 24px -13px rgba(255, 192, 203, 1);
+  }
+  &:active {
+    box-shadow: inset 0px 0px 34px -13px rgba(255, 192, 203, 1);
+  }
 `;
