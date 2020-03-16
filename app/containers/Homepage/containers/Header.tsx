@@ -42,6 +42,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 `;
 
 const Text = styled(animated.div)`
