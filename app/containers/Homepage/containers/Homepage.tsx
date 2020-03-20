@@ -12,6 +12,8 @@ import InfoContainer from './Info';
 export default function Homepage() {
   const dispatch = useDispatch();
   const [inputData, setInputData] = React.useState('');
+  const [productPreview, setProductPreview] = React.useState(false);
+  const [productLoading, setProductLoading] = React.useState(false);
   const [productData, setProductData] = React.useState<ProductInitialState>(productInitialState);
 
   const handleOnChange = (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,9 +25,14 @@ export default function Homepage() {
   const handleOnsubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();
+    setProductData(productInitialState);
+    setProductLoading(true);
+    setProductPreview(false);
     const callback = (response: any) => {
       const result = tikiParser(response.response);
       setProductData(result);
+      setProductLoading(false);
+      setProductPreview(true);
     };
     dispatch(detectProductHost(inputData, callback));
   };
@@ -33,10 +40,13 @@ export default function Homepage() {
   return (
     <HomepageWrapper>
       <Header />
-      <SearchBar handleOnChange={handleOnChange} handleOnSubmit={handleOnsubmit} />
-      {productData.title && (
-        <InfoContainer title={productData.title} price={productData.price} imgURL={productData.imgURL} />
-      )}
+      <SearchBar handleOnChange={handleOnChange} handleOnSubmit={handleOnsubmit} loading={productLoading} />
+      <InfoContainer
+        title={productData.title}
+        price={productData.price}
+        imgURL={productData.imgURL}
+        visible={productPreview}
+      />
     </HomepageWrapper>
   );
 }

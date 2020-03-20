@@ -6,15 +6,16 @@ interface Props {
   title: string | undefined;
   price: string | undefined;
   imgURL: string | undefined;
+  visible: boolean;
   content?: string | undefined;
 }
 
 export default function Info(props: Props) {
   const trail = useTrail(1, {
     ...config.gentle,
-    opacity: 1,
+    opacity: props.visible ? 1 : 0,
     x: 0,
-    height: 360,
+    height: props.visible ? 360 : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
 
