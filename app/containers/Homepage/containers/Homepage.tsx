@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { ProductInitialState } from '../types';
-import { fetchTikiProduct } from '../actions';
+import { detectProductHost } from '../actions';
 import { tikiParser } from '../adapters';
 import { productInitialState } from '../constants';
 import Header from './Header';
@@ -27,7 +27,7 @@ export default function Homepage() {
       const result = tikiParser(response.response);
       setProductData(result);
     };
-    dispatch(fetchTikiProduct(inputData, callback));
+    dispatch(detectProductHost(inputData, callback));
   };
   return (
     <HomepageWrapper>
