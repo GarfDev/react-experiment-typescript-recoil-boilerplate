@@ -29,6 +29,7 @@ export default function Homepage() {
     };
     dispatch(detectProductHost(inputData, callback));
   };
+
   return (
     <HomepageWrapper>
       <Header />

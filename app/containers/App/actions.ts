@@ -18,5 +18,5 @@ export const sesionVerifySuccess = (response: any) => {
 };
 
 export const sessionVerifyFailed = () => {
-  return action(ActionTypes.SESSION_VERIFY_FAILED);
+  return action(ActionTypes.SESSION_VERIFY_FAILED, {});
 };

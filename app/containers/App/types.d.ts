@@ -22,7 +22,7 @@ interface SessionState {
 }
 
 /* --- ACTIONS --- */
-type AppActions = ActionType<typeof actions>;
+type AppActions = ActionType<actions>;
 
 /* --- EXPORTS --- */
 
