@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import P from '../../../global/components/P';
 import { useTrail, animated, config } from 'react-spring';
 
 interface Props {
@@ -15,7 +14,7 @@ export default function Info(props: Props) {
     ...config.gentle,
     opacity: 1,
     x: 0,
-    height: 80,
+    height: 360,
     from: { opacity: 0, x: 20, height: 0 },
   });
 
@@ -26,7 +25,7 @@ export default function Info(props: Props) {
           key={index}
           style={{ ...rest, transform: x.interpolate((x: number) => `translate3d(0,${x}px,0)`) }}
         >
-          <InfoContainer style={height} imgURL={props.imgURL}>
+          <InfoContainer style={{ height }} imgURL={props.imgURL}>
             <StyledTitle>{props.title}</StyledTitle>
             <StyledPrice>{props.price && 'PRICE: ' + props.price}</StyledPrice>
           </InfoContainer>
@@ -64,7 +63,6 @@ const InfoContainer = styled(animated.div)`
   background-size: cover;
   background-repeat: no-repeat;
   width: 55vw;
-  height: 400px;
   padding: 40px;
   border-radius: 30px;
 `;

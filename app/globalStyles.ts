@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   #app {
+
     background-color: #fafafa;
     min-height: 100%;
     min-width: 100%;
@@ -25,6 +26,16 @@ const GlobalStyle = createGlobalStyle`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+  ::-moz-selection { /* Code for Firefox */
+      color: white;
+      background: pink;
+    }
+
+  ::selection {
+    color: white;
+    background: pink;
+  }
+
 `;
 
 export default GlobalStyle;
