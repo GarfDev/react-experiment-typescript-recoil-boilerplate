@@ -10,14 +10,19 @@ module.exports = {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
-  plugins: ['@typescript-eslint', 'react-hooks', 'prettier', 'react'],
-  globals: {
+  plugins: ['prettier', 'redux-saga', '@typescript-eslint', 'react-hooks', 'jsx-a11y', 'prettier', 'react'],
+  globals: {},
+  env: {
+    jest: true,
+    browser: true,
+    node: true,
+    es6: true,
   },
   settings: {
     react: {
-      pragma: "React",
-      version: "detect",
-    }
+      pragma: 'React',
+      version: 'detect',
+    },
   },
   rules: {
     'prettier/prettier': [
@@ -53,4 +58,3 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
   },
 };
-

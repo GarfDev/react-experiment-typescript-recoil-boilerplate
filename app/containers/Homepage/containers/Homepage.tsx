@@ -15,7 +15,6 @@ export default function Homepage() {
   const [productPreview, setProductPreview] = React.useState(false);
   const [productLoading, setProductLoading] = React.useState(false);
   const [productData, setProductData] = React.useState<ProductInitialState>(productInitialState);
-
   const handleOnChange = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();

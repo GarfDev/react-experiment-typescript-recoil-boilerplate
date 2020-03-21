@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 // App
 import App from './containers/App';
-
+// Cores
+import FirebaseContext, { Firebase } from './@core/Firebase';
 // ConnectedRouterImport
 import { ConnectedRouter } from 'connected-react-router';
 import history from './utils/history';
@@ -20,10 +21,12 @@ const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 ReactDOM.render(
   <Provider store={store}>
     <LanguagePropvier>
-      <ConnectedRouter history={history}>
-        <App />
-        <GlobalStyle />
-      </ConnectedRouter>
+      <FirebaseContext.Provider value={Firebase()}>
+        <ConnectedRouter history={history}>
+          <App />
+          <GlobalStyle />
+        </ConnectedRouter>
+      </FirebaseContext.Provider>
     </LanguagePropvier>
   </Provider>,
   MOUNT_NODE,
