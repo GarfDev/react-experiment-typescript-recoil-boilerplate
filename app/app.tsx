@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // App
-import App from './containers/App';
+import App from './modules/App';
 // Cores
-import FirebaseContext, { Firebase } from './@core/Firebase';
+import FirebaseContext, { Firebase } from './modules/@core/Firebase';
 // ConnectedRouterImport
 import { ConnectedRouter } from 'connected-react-router';
 import history from './utils/history';
 
 import { Provider } from 'react-redux';
 import configureStore from './configStore';
-import LanguagePropvier from './containers/LanguagePropvier';
+import LanguagePropvier from './modules/LanguagePropvier';
 import GlobalStyle from './globalStyles';
 // configureStore
 const initialState = {};
@@ -19,16 +19,17 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 
 ReactDOM.render(
-  <Provider store={store}>
-    <LanguagePropvier>
-      <FirebaseContext.Provider value={Firebase()}>
+  <FirebaseContext.Provider value={Firebase}>
+    <Provider store={store}>
+      <LanguagePropvier>
         <ConnectedRouter history={history}>
           <App />
           <GlobalStyle />
         </ConnectedRouter>
-      </FirebaseContext.Provider>
-    </LanguagePropvier>
-  </Provider>,
+      </LanguagePropvier>
+    </Provider>
+  </FirebaseContext.Provider>,
+
   MOUNT_NODE,
 );
 

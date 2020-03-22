@@ -5,7 +5,7 @@ import { useTrail, animated, config } from 'react-spring';
 interface Props {
   title: string | undefined;
   price: string | undefined;
-  imgURL: string | undefined;
+  previewImage: string | undefined;
   visible: boolean;
   content?: string | undefined;
 }
@@ -26,7 +26,7 @@ export default function Info(props: Props) {
           key={index}
           style={{ ...rest, transform: x.interpolate((x: number) => `translate3d(0,${x}px,0)`) }}
         >
-          <InfoContainer style={{ height }} imgURL={props.imgURL}>
+          <InfoContainer style={{ height }} previewimage={props.previewImage}>
             <StyledTitle>{props.title}</StyledTitle>
             <StyledPrice>{props.price && 'PRICE: ' + props.price}</StyledPrice>
           </InfoContainer>
@@ -49,7 +49,7 @@ const StyledPrice = styled(animated.div)`
 `;
 
 interface InfoContainerProps {
-  imgURL: string | undefined;
+  previewimage: string | undefined;
 }
 
 const InfoContainer = styled(animated.div)`
@@ -58,7 +58,7 @@ const InfoContainer = styled(animated.div)`
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
-  background-image: url(${(props: InfoContainerProps) => props.imgURL});
+  background-image: url(${(props: InfoContainerProps) => props.previewimage});
   background-color: pink;
   background-blend-mode: multiply;
   background-size: cover;

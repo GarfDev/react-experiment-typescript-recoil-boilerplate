@@ -11,7 +11,9 @@ export default function Info(props: Props) {
     <Container onSubmit={props.handleOnSubmit} onChange={props.handleOnChange}>
       <ItemContainer>
         <StyledInput placeholder="Please input your link here.." />
-        <StyledButton type="submit">{!props.loading ? 'Submit' : '.....'}</StyledButton>
+        <StyledButton disabled={props.loading} type="submit">
+          {!props.loading ? 'Submit' : '......'}
+        </StyledButton>
       </ItemContainer>
     </Container>
   );

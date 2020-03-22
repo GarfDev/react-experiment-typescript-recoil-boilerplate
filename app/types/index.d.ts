@@ -1,8 +1,7 @@
 import { Reducer, Store } from 'redux';
 import { RouterState } from 'connected-react-router';
-import { ContainerState as LanguageProviderState } from '../containers/LanguagePropvier/types';
-import { ContainerState as SessionState } from 'containers/App/types';
-
+import { ContainerState as LanguageProviderState } from '../modules/LanguagePropvier/types';
+import SessionState from 'modules/@core/Session/reducer';
 export interface InjectedStore extends Store {
   injectedReducers: any;
   injectedSagas: any;

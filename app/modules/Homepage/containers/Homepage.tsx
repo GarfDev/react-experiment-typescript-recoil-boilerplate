@@ -43,7 +43,7 @@ export default function Homepage() {
       <InfoContainer
         title={productData.title}
         price={productData.price}
-        imgURL={productData.imgURL}
+        previewImage={productData.imgURL}
         visible={productPreview}
       />
     </HomepageWrapper>
