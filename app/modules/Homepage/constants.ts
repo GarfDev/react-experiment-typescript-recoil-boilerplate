@@ -17,6 +17,6 @@ export const hostRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)
 
 export const TikiRegexs = {
   titleRegex: /<meta property="(?:.*?)title(?:.*?)" content="(.*?)"/,
-  priceRegex: /<b class="price">(.*?)</,
+  priceRegex: /<span id="(?:.*?)price(?:.*?)">(.*?)</,
   imageRegex: /https:\/\/salt\.tikicdn\.com\/cache\/550x550\/ts\/product\/(?:.*?)\.jpg/,
 };

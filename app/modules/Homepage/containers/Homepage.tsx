@@ -7,14 +7,18 @@ import { tikiParser } from '../adapters';
 import { productInitialState } from '../constants';
 import Header from './Header';
 import SearchBar from './Search';
-import InfoContainer from './Info';
+import InfoContainer from '../components/Info';
 
 export default function Homepage() {
+  // Initial Values
   const dispatch = useDispatch();
   const [inputData, setInputData] = React.useState('');
+  // Homepage States
   const [productPreview, setProductPreview] = React.useState(false);
   const [productLoading, setProductLoading] = React.useState(false);
   const [productData, setProductData] = React.useState<ProductInitialState>(productInitialState);
+
+  // Event Handle Functions
   const handleOnChange = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();
