@@ -6,6 +6,7 @@ interface Props {
   title: string | undefined;
   price: string | undefined;
   previewImage: string | undefined;
+  onSaveItems: (event: React.MouseEvent<HTMLDivElement>) => void;
   visible: boolean;
   content?: string | undefined;
 }
@@ -29,8 +30,8 @@ export default function Info(props: Props) {
             <StyledTitle>{props.title}</StyledTitle>
             <StyledPrice>{props.price && props.price}</StyledPrice>
             <ButtonContainer>
-              <Button color="blue">Do this</Button>
-              <Button color="red">Do that</Button>
+              <Button>Do this</Button>
+              <Button onClick={props.onSaveItems}>Do that</Button>
             </ButtonContainer>
           </InfoContainer>
         </animated.main>

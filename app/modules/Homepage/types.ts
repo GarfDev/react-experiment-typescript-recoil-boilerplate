@@ -1,4 +1,4 @@
-export interface ProductInitialState {
+export interface Product {
   title: string | undefined;
   price: string | undefined;
   imgURL: string | undefined;

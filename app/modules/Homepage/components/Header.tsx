@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { useTrail, animated, config } from 'react-spring';
 
-const items = ['Reminder'];
+interface Props {
+  titles: string[];
+}
 
-export default function Header() {
-  const trail = useTrail(items.length, {
+export default function Header(props: Props) {
+  const trail = useTrail(props.titles.length, {
     ...config.gentle,
     opacity: 1,
     x: 0,
@@ -17,10 +19,10 @@ export default function Header() {
     <Container>
       {trail.map(({ x, height, ...rest }, index) => (
         <animated.main
-          key={items[index]}
-          style={{ ...rest, transform: x.interpolate((x: number) => `translate3d(0,${x}px,0)`) }}
+          key={props.titles[index]}
+          style={{ ...rest, transform: x.to((x: number) => `translate3d(0,${x}px,0)`) }}
         >
-          <Text style={{ height }}>{items[index]}</Text>
+          <Text style={{ height }}>{props.titles[index]}</Text>
         </animated.main>
       ))}
     </Container>

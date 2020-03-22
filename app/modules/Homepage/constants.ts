@@ -1,4 +1,4 @@
-import { ProductInitialState } from './types';
+import { Product } from './types';
 
 export enum ApiConfig {
   CORS_BYBASS = 'https://cors-anywhere.herokuapp.com/',
@@ -6,7 +6,7 @@ export enum ApiConfig {
 
 /// Application Logic
 
-export const productInitialState: ProductInitialState = {
+export const productInitialState: Product = {
   title: undefined,
   price: undefined,
   imgURL: undefined,

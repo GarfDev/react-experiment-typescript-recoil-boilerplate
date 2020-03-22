@@ -1,13 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { ProductInitialState } from '../types';
+import { Product } from '../types';
 import { detectProductHost } from '../actions';
 import { tikiParser } from '../adapters';
 import { productInitialState } from '../constants';
-import Header from './Header';
-import SearchBar from './Search';
+import Header from '../components/Header';
+import SearchBar from '../components/Search';
 import InfoContainer from '../components/Info';
+import Cards from '../components/Cards';
 
 export default function Homepage() {
   // Initial Values
@@ -16,7 +17,8 @@ export default function Homepage() {
   // Homepage States
   const [productPreview, setProductPreview] = React.useState(false);
   const [productLoading, setProductLoading] = React.useState(false);
-  const [productData, setProductData] = React.useState<ProductInitialState>(productInitialState);
+  const [savedItems, setSavedItems] = React.useState<Product[] | []>([]);
+  const [productData, setProductData] = React.useState<Product>(productInitialState);
 
   // Event Handle Functions
   const handleOnChange = (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,16 +42,31 @@ export default function Homepage() {
     dispatch(detectProductHost(inputData, callback));
   };
 
+  const handleOnSaveItems = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const currentItemList = JSON.parse(localStorage.getItem('items') || '[]');
+    currentItemList.push(productData);
+    localStorage.setItem('items', JSON.stringify(currentItemList));
+  };
+  // ComponentDidMouth
+  React.useEffect(() => {
+    const savedItems = JSON.parse(localStorage.getItem('items') || '[]');
+    setSavedItems(savedItems);
+  }, []);
+
+  // Main return fucntion
   return (
     <HomepageWrapper>
-      <Header />
+      <Header titles={['Reminder']} />
       <SearchBar handleOnChange={handleOnChange} handleOnSubmit={handleOnsubmit} loading={productLoading} />
       <InfoContainer
         title={productData.title}
         price={productData.price}
         previewImage={productData.imgURL}
         visible={productPreview}
+        onSaveItems={handleOnSaveItems}
       />
+      <Cards data={savedItems} />
     </HomepageWrapper>
   );
 }
