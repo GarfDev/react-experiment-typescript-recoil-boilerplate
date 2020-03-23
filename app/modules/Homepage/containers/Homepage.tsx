@@ -53,6 +53,7 @@ export default function Homepage() {
     currentItemList.unshift(productData);
     localStorage.setItem('items', JSON.stringify(currentItemList));
     setProductPreview(false);
+    setInputData('');
     loadSavedItems();
   };
 
