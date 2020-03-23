@@ -13,6 +13,9 @@ module.exports = {
       maxInitialRequests: 3,
     },
   },
+  output: {
+    ecmaVersion: 5,
+  },
   devServer: {
     port: 3000,
     historyApiFallback: true,
