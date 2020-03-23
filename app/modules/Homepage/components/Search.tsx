@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 interface Props {
+  inputData: string;
   handleOnChange: (event: React.FormEvent<HTMLFormElement>) => void;
   handleOnSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   loading: boolean;
@@ -10,7 +11,7 @@ export default function Info(props: Props) {
   return (
     <Container onSubmit={props.handleOnSubmit} onChange={props.handleOnChange}>
       <ItemContainer>
-        <StyledInput placeholder="Please input your link here.." />
+        <StyledInput placeholder="Please input your link here.." value={props.inputData} />
         <StyledButton disabled={props.loading} type="submit">
           {!props.loading ? 'Submit' : '......'}
         </StyledButton>

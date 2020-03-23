@@ -66,7 +66,12 @@ export default function Homepage() {
   return (
     <HomepageWrapper>
       <Header titles={['Reminder']} />
-      <SearchBar handleOnChange={handleOnChange} handleOnSubmit={handleOnsubmit} loading={productLoading} />
+      <SearchBar
+        inputData={inputData}
+        handleOnChange={handleOnChange}
+        handleOnSubmit={handleOnsubmit}
+        loading={productLoading}
+      />
       <InfoContainer
         title={productData.title}
         price={productData.price}
