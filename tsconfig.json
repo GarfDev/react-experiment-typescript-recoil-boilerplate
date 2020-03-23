@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		// Target latest version of ECMAScript.
-		"target": "ES6",
+		"target": "esnext",
 		// path to output directory
 		"outDir": "./build/",
 		// enable strict null checks as a best practice
@@ -24,7 +24,7 @@
 		"typeRoots": ["node_modules/@types"],
 		"lib": ["dom", "es5", "es6", "es7", "es2017"],
 		"types": ["jest", "node"],
-		"module": "esnext",
+		"module": "CommonJS",
 		"removeComments": true,
 		"alwaysStrict": true,
 		"allowUnreachableCode": false,
