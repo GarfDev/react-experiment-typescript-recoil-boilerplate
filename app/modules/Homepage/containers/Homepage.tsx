@@ -52,6 +52,7 @@ export default function Homepage() {
     const currentItemList = JSON.parse(localStorage.getItem('items') || '[]');
     currentItemList.unshift(productData);
     localStorage.setItem('items', JSON.stringify(currentItemList));
+    setProductPreview(false);
     loadSavedItems();
   };
 
