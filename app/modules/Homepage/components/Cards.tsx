@@ -12,7 +12,7 @@ export default function Card(props: Props) {
     from: { opacity: 0, height: '0px', marginBottom: '0' },
     enter: { opacity: 1, height: '440px', margin: '70px 40px' },
     leave: { opacity: 0, height: '0px', marginBottom: '0' },
-    config: config.gentle,
+    config: config.default,
   });
 
   return (

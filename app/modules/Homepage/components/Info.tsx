@@ -23,7 +23,10 @@ export default function Info(props: Props) {
   return (
     <>
       {trail.map(({ x, height, ...rest }, index) => (
-        <animated.main key={index} style={{ ...rest, transform: x.to((x: number) => `translate3d(0,${x}px,0)`) }}>
+        <animated.main
+          key={index}
+          style={{ ...rest, height: height, transform: x.to((x: number) => `translate3d(0,${x}px,0)`) }}
+        >
           <InfoContainer style={{ height }} previewimage={props.previewImage}>
             <StyledTitle>{props.title}</StyledTitle>
             <StyledPrice>{props.price && props.price}</StyledPrice>
