@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTransition, animated } from 'react-spring';
+import { useTransition, animated, config } from 'react-spring';
 import { Product } from '../types';
 
 interface Props {
@@ -12,6 +12,7 @@ export default function Card(props: Props) {
     from: { opacity: 0, height: '0px', marginBottom: '0' },
     enter: { opacity: 1, height: '440px', margin: '70px 40px' },
     leave: { opacity: 0, height: '0px', marginBottom: '0' },
+    config: config.gentle,
   });
 
   return (
