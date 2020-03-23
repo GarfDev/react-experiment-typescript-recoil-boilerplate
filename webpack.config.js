@@ -4,6 +4,15 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   devtool: 'inline-source-map',
+  optimization: {
+    minimize: true,
+    splitChunks: {
+      hidePathInfo: true,
+      minSize: 30000,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+    },
+  },
   devServer: {
     port: 3000,
     historyApiFallback: true,
