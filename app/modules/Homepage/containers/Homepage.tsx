@@ -42,16 +42,22 @@ export default function Homepage() {
     dispatch(detectProductHost(inputData, callback));
   };
 
+  const loadSavedItems = () => {
+    const savedItems = JSON.parse(localStorage.getItem('items') || '[]');
+    setSavedItems(savedItems);
+  };
+
   const handleOnSaveItems = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     const currentItemList = JSON.parse(localStorage.getItem('items') || '[]');
-    currentItemList.push(productData);
+    currentItemList.unshift(productData);
     localStorage.setItem('items', JSON.stringify(currentItemList));
+    loadSavedItems();
   };
+
   // ComponentDidMouth
   React.useEffect(() => {
-    const savedItems = JSON.parse(localStorage.getItem('items') || '[]');
-    setSavedItems(savedItems);
+    loadSavedItems();
   }, []);
 
   // Main return fucntion

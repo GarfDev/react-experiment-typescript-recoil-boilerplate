@@ -31,10 +31,10 @@ export default function Header(props: Props) {
 
 const Container = styled.div`
   display: flex;
+  margin-top: 140px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 60px 0px;
   position: relative;
   width: 100%;
   height: 100%;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTrail, animated, config } from 'react-spring';
+import { useTransition, animated } from 'react-spring';
 import { Product } from '../types';
 
 interface Props {
@@ -8,21 +8,19 @@ interface Props {
 }
 
 export default function Card(props: Props) {
-  const trail = useTrail(props.data.length, {
-    ...config.gentle,
-    opacity: 1,
-    x: 0,
-    height: 360,
-    width: 400,
-    from: { opacity: 0, x: 20, height: 0, width: 0 },
+  const transitions = useTransition(props.data, item => item.title || '', {
+    from: { opacity: 0, height: '0px', marginBottom: '0' },
+    enter: { opacity: 1, height: '440px', margin: '70px 40px' },
+    leave: { opacity: 0, height: '0px', marginBottom: '0' },
   });
+
   return (
     <Container>
-      {trail.map(({ x, height, width, ...rest }, index) => (
-        <animated.main key={index} style={{ ...rest, transform: x.to((x: number) => `translate3d(0,${x}px,0)`) }}>
-          <InfoContainer style={{ height, width }} previewimage={props.data[index].imgURL}>
-            <StyledTitle>{props.data[index].title}</StyledTitle>
-            <StyledPrice>{props.data[index].price}</StyledPrice>
+      {transitions.map((animatedProps: any) => (
+        <animated.main key={animatedProps.key} style={animatedProps.props}>
+          <InfoContainer previewimage={animatedProps.item?.imgURL}>
+            <StyledTitle>{animatedProps.item?.title}</StyledTitle>
+            <StyledPrice>{animatedProps.item?.price}</StyledPrice>
           </InfoContainer>
         </animated.main>
       ))}
@@ -32,7 +30,8 @@ export default function Card(props: Props) {
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 90%;
   padding: 40px;
 `;
@@ -55,6 +54,7 @@ interface InfoContainerProps {
 
 const InfoContainer = styled(animated.div)`
   color: white;
+  position: relative !important;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
@@ -65,4 +65,6 @@ const InfoContainer = styled(animated.div)`
   background-repeat: no-repeat;
   padding: 40px;
   border-radius: 30px;
+  height: 440px;
+  width: 560px;
 `;
