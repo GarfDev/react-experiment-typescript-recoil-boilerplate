@@ -1,10 +1,4 @@
-# This My PC
-
-<div align="center">
-    <a href="http://thismypc.com/">
-        <img src="thisMyPCWeb/src/assets/images/logo/logo-mini.png">
-    </a>
-</div>
+# Memorize
 
 <br />
 
