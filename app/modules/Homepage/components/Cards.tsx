@@ -5,6 +5,8 @@ import { Product } from '../types';
 
 interface Props {
   data: Product[];
+  onCopy: (string: string) => (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  onDelete: (title: string) => (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export default function Card(props: Props) {
@@ -19,7 +21,11 @@ export default function Card(props: Props) {
     <Container>
       {transitions.map((animatedProps: any) => (
         <animated.main key={animatedProps.key} style={animatedProps.props}>
-          <InfoContainer previewimage={animatedProps.item?.imgURL}>
+          <InfoContainer
+            previewimage={animatedProps.item?.imgURL}
+            onClick={props.onCopy(animatedProps.item?.productURL)}
+          >
+            <ActionButton onClick={props.onDelete(animatedProps.item?.title)}>X</ActionButton>
             <StyledTitle>{animatedProps.item?.title}</StyledTitle>
             <StyledPrice>{animatedProps.item?.price}</StyledPrice>
           </InfoContainer>
@@ -35,6 +41,26 @@ const Container = styled.div`
   justify-content: center;
   width: 90%;
   padding: 40px;
+`;
+
+const ActionButton = styled.div`
+  position: absolute !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  transition-duration: 0.5s;
+  &:hover {
+    transform: rotate(90deg);
+    transform-origin: center center;
+    transition-duration: 0.5s;
+  }
 `;
 
 const StyledTitle = styled.div`
@@ -56,6 +82,8 @@ interface InfoContainerProps {
 const InfoContainer = styled(animated.div)`
   color: white;
   position: relative !important;
+  cursor: pointer;
+  overflow: hidden;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
@@ -67,7 +95,12 @@ const InfoContainer = styled(animated.div)`
   padding: 40px;
   border-radius: 30px;
   height: 440px;
-  width: 30vw;
+  width: 50vw;
   min-width: 350px;
   max-width: 450px;
+  transition-duration: 0.5s;
+  &:hover {
+    background-color: transparent;
+    transition-duration: 0.5s;
+  }
 `;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useToasts } from 'react-toast-notifications';
 import styled from 'styled-components';
 import { Product } from '../types';
 import { detectProductHost } from '../actions';
@@ -13,6 +14,7 @@ import Cards from '../components/Cards';
 export default function Homepage() {
   // Initial Values
   const dispatch = useDispatch();
+  const { addToast } = useToasts();
   const [inputData, setInputData] = React.useState('');
   // Homepage States
   const [productPreview, setProductPreview] = React.useState(false);
@@ -48,6 +50,22 @@ export default function Homepage() {
     dispatch(detectProductHost(inputData, callback));
   };
 
+  const handleOnCopy = (string: string) => (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    navigator.clipboard.writeText(string).then(() => {
+      addToast('Copied your link to clipboard', { appearance: 'success' });
+    });
+  };
+
+  const handleOnDelete = (title: string) => (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const filteredData = savedItems.filter(item => item.title != title);
+    setSavedItems(filteredData);
+    localStorage.setItem('items', JSON.stringify(filteredData));
+  };
+
   const loadSavedItems = () => {
     const savedItems = JSON.parse(localStorage.getItem('items') || '[]');
     setSavedItems(savedItems);
@@ -60,6 +78,7 @@ export default function Homepage() {
     localStorage.setItem('items', JSON.stringify(currentItemList));
     setProductPreview(false);
     setInputData('');
+    addToast('Saved your item', { appearance: 'success' });
     loadSavedItems();
   };
 
@@ -86,7 +105,7 @@ export default function Homepage() {
         onSaveItems={handleOnSaveItems}
         onCancel={handleOnClose}
       />
-      <Cards data={savedItems} />
+      <Cards data={savedItems} onCopy={handleOnCopy} onDelete={handleOnDelete} />
     </HomepageWrapper>
   );
 }
