@@ -3,6 +3,7 @@ export interface Product {
   price: string | undefined;
   imgURL: string | undefined;
   content?: string | undefined;
+  productURL?: string | undefined;
 }
 
 export enum supportedHosts {

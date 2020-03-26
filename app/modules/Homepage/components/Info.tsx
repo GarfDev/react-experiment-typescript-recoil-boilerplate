@@ -7,6 +7,7 @@ interface Props {
   price: string | undefined;
   previewImage: string | undefined;
   onSaveItems: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onCancel: () => void;
   visible: boolean;
   content?: string | undefined;
 }
@@ -28,8 +29,8 @@ export default function Info(props: Props) {
             <StyledTitle>{props.title}</StyledTitle>
             <StyledPrice>{props.price && props.price}</StyledPrice>
             <ButtonContainer>
-              <Button>Do this</Button>
-              <Button onClick={props.onSaveItems}>Do that</Button>
+              <Button onClick={props.onCancel}>Cancel</Button>
+              <Button onClick={props.onSaveItems}>Save</Button>
             </ButtonContainer>
           </InfoContainer>
         </animated.main>

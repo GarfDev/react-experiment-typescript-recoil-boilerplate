@@ -27,6 +27,12 @@ export default function Homepage() {
     setInputData((event.target as any).value);
   };
 
+  const handleOnClose = () => {
+    setProductPreview(false);
+    setProductData(productInitialState);
+    setInputData('');
+  };
+
   const handleOnsubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -35,7 +41,7 @@ export default function Homepage() {
     setProductPreview(false);
     const callback = (response: any) => {
       const result = tikiParser(response.response);
-      setProductData(result);
+      setProductData({ ...result, productURL: inputData });
       setProductLoading(false);
       setProductPreview(true);
     };
@@ -78,6 +84,7 @@ export default function Homepage() {
         previewImage={productData.imgURL}
         visible={productPreview}
         onSaveItems={handleOnSaveItems}
+        onCancel={handleOnClose}
       />
       <Cards data={savedItems} />
     </HomepageWrapper>

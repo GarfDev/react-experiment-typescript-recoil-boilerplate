@@ -7,7 +7,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](http://thismypc.com/)
 <br />
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a621e6e400f440ca985f3483cfdd5c1e)](https://www.codacy.com/manual/GarfDev/Memorize?utm_source=github.com&utm_medium=referral&utm_content=GarfDev/Memorize&utm_campaign=Badge_Grade)
-![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/supunlakmal/thismypc/graphs/commit-activity)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/supunlakmal/thismypc/blob/master/LICENSE)
+![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/GarfDev/Memorize/graphs/commit-activity)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/GarfDev/Memorize/blob/master/LICENSE)
 </div>
 
 > The source code is open so that you can download the source code and set it up with ease if you would like to have your own exclusive environment.

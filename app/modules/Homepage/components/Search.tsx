@@ -42,7 +42,8 @@ const StyledInput = styled.input`
   color: pink;
   font-size: 20px;
   font-weight: 530;
-  width: 400px;
+  width: 40vw;
+  min-width: 250px;
   padding: 15px 25px;
   border: 2px solid pink;
   border-radius: 27px;

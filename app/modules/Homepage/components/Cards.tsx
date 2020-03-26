@@ -67,5 +67,7 @@ const InfoContainer = styled(animated.div)`
   padding: 40px;
   border-radius: 30px;
   height: 440px;
-  width: 560px;
+  width: 30vw;
+  min-width: 350px;
+  max-width: 450px;
 `;

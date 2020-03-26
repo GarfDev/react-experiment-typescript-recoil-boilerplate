@@ -11,7 +11,7 @@ export default function Header(props: Props) {
     ...config.gentle,
     opacity: 1,
     x: 0,
-    height: 80,
+    height: 'max-content',
     from: { opacity: 0, x: 20, height: 0 },
   });
 
@@ -31,7 +31,7 @@ export default function Header(props: Props) {
 
 const Container = styled.div`
   display: flex;
-  margin-top: 140px;
+  margin-top: 60px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -52,10 +52,8 @@ const Container = styled.div`
 
 const Text = styled(animated.div)`
   position: relative;
-  height: 80px;
-  line-height: 80px;
   color: pink;
-  font-size: 5em;
+  font-size: max(10vmax, 20px);
   font-weight: 800;
   text-transform: uppercase;
   will-change: transform, opacity;
