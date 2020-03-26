@@ -21,6 +21,7 @@ export default function Info(props: Props) {
     height: props.visible ? 360 : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
+
   return (
     <>
       {trail.map(({ x, height, ...rest }, index) => (
@@ -41,13 +42,13 @@ export default function Info(props: Props) {
 
 const StyledTitle = styled.div`
   font-family: sans-serif;
-  font-size: 2em;
+  font-size: 2vmax;
   font-weight: bold;
 `;
 
 const StyledPrice = styled.div`
   font-family: sans-serif;
-  font-size: 1.9em;
+  font-size: 1vmax;
   font-weight: bold;
 `;
 
@@ -59,7 +60,7 @@ const InfoContainer = styled(animated.div)`
   margin-top: 40px;
   color: white;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: flex-end;
   background-image: url(${(props: InfoContainerProps) => props.previewimage});
   background-color: pink;
@@ -67,7 +68,8 @@ const InfoContainer = styled(animated.div)`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  width: 1000px;
+  width: 60vw;
+  min-width: 270px;
   padding: 40px;
   border-radius: 30px;
 `;
