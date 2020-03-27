@@ -19,4 +19,7 @@ export const TikiRegexs = {
   titleRegex: /<meta property="(?:.*?)title(?:.*?)" content="(.*?)"/,
   priceRegex: /<span id="(?:.*?)price(?:.*?)">(.*?)</,
   imageRegex: /https:\/\/salt\.tikicdn\.com\/cache\/550x550\/ts\/product\/(?:.*?)\.jpg/,
+  imageRegex2: /https:\/\/salt\.tikicdn\.com\/cache\/w1200\/ts\/product\/(?:.*?).png/,
 };
+
+export const adsLink = `http://go.masoffer.net/v0/${process.env.REACT_APP_ADS_CODE}?url=`;

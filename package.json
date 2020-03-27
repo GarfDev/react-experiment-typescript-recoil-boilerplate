@@ -4,10 +4,10 @@
   "main": "app.tsx",
   "license": "MIT",
   "scripts": {
-    "bundle": "webpack",
-    "start": "webpack-dev-server --mode development --hot -d",
+    "bundle": "webpack --config webpack.config.prod.js",
+    "start": "webpack-dev-server --mode development --hot -d --config webpack.config.dev.js",
     "test": "jest --passWithNoTests",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --config webpack.config.prod.js",
     "check-types": "tsc",
     "lint": "tsc --noEmit && eslint 'app/**/*.{ts,tsx}' --quiet --fix --max-warnings 0",
     "eslint": "eslint 'app/**/*.{ts,tsx}' --quiet --fix",

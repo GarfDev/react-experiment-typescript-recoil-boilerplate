@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Product } from '../types';
 import { detectProductHost } from '../actions';
 import { tikiParser } from '../adapters';
-import { productInitialState } from '../constants';
+import { productInitialState, adsLink } from '../constants';
 import Header from '../components/Header';
 import SearchBar from '../components/Search';
 import InfoContainer from '../components/Info';
@@ -53,7 +53,8 @@ export default function Homepage() {
   const handleOnCopy = (string: string) => (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     event.stopPropagation();
-    navigator.clipboard.writeText(string).then(() => {
+    const concatedLink = adsLink + encodeURIComponent(string);
+    navigator.clipboard.writeText(concatedLink).then(() => {
       addToast('Copied your link to clipboard', { appearance: 'success' });
     });
   };
@@ -89,24 +90,26 @@ export default function Homepage() {
 
   // Main return fucntion
   return (
-    <HomepageWrapper>
-      <Header titles={['Reminder']} />
-      <SearchBar
-        inputData={inputData}
-        handleOnChange={handleOnChange}
-        handleOnSubmit={handleOnsubmit}
-        loading={productLoading}
-      />
-      <InfoContainer
-        title={productData.title}
-        price={productData.price}
-        previewImage={productData.imgURL}
-        visible={productPreview}
-        onSaveItems={handleOnSaveItems}
-        onCancel={handleOnClose}
-      />
-      <Cards data={savedItems} onCopy={handleOnCopy} onDelete={handleOnDelete} />
-    </HomepageWrapper>
+    <>
+      <HomepageWrapper>
+        <Header titles={['Reminder']} />
+        <SearchBar
+          inputData={inputData}
+          handleOnChange={handleOnChange}
+          handleOnSubmit={handleOnsubmit}
+          loading={productLoading}
+        />
+        <InfoContainer
+          title={productData.title}
+          price={productData.price}
+          previewImage={productData.imgURL}
+          visible={productPreview}
+          onSaveItems={handleOnSaveItems}
+          onCancel={handleOnClose}
+        />
+        <Cards data={savedItems} onCopy={handleOnCopy} onDelete={handleOnDelete} />
+      </HomepageWrapper>
+    </>
   );
 }
 
