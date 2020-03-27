@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[![GarfDev](https://media.giphy.com/media/lmvux6T4P4KRdBEq1N/giphy.gif)]
+![GarfDev](https://media.giphy.com/media/lmvux6T4P4KRdBEq1N/giphy.gif)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](http://thismypc.com/)
 <br />
