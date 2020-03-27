@@ -3,7 +3,7 @@
 <br />
 
 <div align="center">
-
+![GarfDev](https://media.giphy.com/media/lmvux6T4P4KRdBEq1N/giphy.gif)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](http://thismypc.com/)
 <br />
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a621e6e400f440ca985f3483cfdd5c1e)](https://www.codacy.com/manual/GarfDev/Memorize?utm_source=github.com&utm_medium=referral&utm_content=GarfDev/Memorize&utm_campaign=Badge_Grade)

@@ -32,27 +32,6 @@ module.exports = {
   output: {
     ecmaVersion: 5,
   },
-  devServer: {
-    port: 3000,
-    historyApiFallback: true,
-    publicPath: '/',
-    stats: {
-      colors: true,
-      hash: false,
-      version: false,
-      timings: false,
-      assets: false,
-      chunks: false,
-      modules: false,
-      reasons: false,
-      children: false,
-      source: false,
-      errors: true,
-      errorDetails: true,
-      warnings: false,
-      publicPath: false,
-    },
-  },
   entry: './app/app',
   output: {
     path: path.join(__dirname, '/build'),
