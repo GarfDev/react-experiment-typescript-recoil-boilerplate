@@ -1,16 +1,32 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: false,
   optimization: {
     minimize: true,
     splitChunks: {
-      hidePathInfo: true,
+      chunks: 'async',
       minSize: 30000,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
+      maxSize: 1324000,
+      minChunks: 1,
+      maxAsyncRequests: 6,
+      maxInitialRequests: 4,
+      automaticNameDelimiter: '~',
+      automaticNameMaxLength: 30,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
     },
   },
   output: {
@@ -64,10 +80,11 @@ module.exports = {
   plugins: [
     new Dotenv({
       path: './.env',
-      safe: true,
+      silent: true,
     }),
     new HtmlWebpackPlugin({
       template: './app/index.html',
     }),
+    new CompressionPlugin(),
   ],
 };
