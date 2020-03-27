@@ -10,6 +10,8 @@ import Header from '../components/Header';
 import SearchBar from '../components/Search';
 import InfoContainer from '../components/Info';
 import Cards from '../components/Cards';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assest/image/favicon.ico';
 
 export default function Homepage() {
   // Initial Values
@@ -91,6 +93,11 @@ export default function Homepage() {
   // Main return fucntion
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <link rel="icon" href={favicon} type="image/gif" sizes="16x16"></link>
+        <title>Reminder - Powered by GarfDef</title>
+      </Helmet>
       <HomepageWrapper>
         <Header titles={['Reminder']} />
         <SearchBar
