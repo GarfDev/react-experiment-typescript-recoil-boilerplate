@@ -19,8 +19,8 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 
 ReactDOM.render(
-  <Provider store={store}>
-    <FirebaseContext.Provider value={Firebase}>
+  <FirebaseContext.Provider value={Firebase}>
+    <Provider store={store}>
       <ToastProvider autoDismiss={true} autoDismissTimeout={6000} transitionDuration={6} placement="top-right">
         <LanguagePropvier>
           <ConnectedRouter history={history}>
@@ -29,8 +29,8 @@ ReactDOM.render(
           </ConnectedRouter>
         </LanguagePropvier>
       </ToastProvider>
-    </FirebaseContext.Provider>
-  </Provider>,
+    </Provider>
+  </FirebaseContext.Provider>,
   MOUNT_NODE,
 );
 
