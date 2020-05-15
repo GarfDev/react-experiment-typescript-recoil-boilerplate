@@ -1,16 +1,7 @@
-import { takeLeading, put } from 'redux-saga/effects';
-import * as actions from './actions';
-import { verifySession } from './firebase';
-import ActionTypes from './actionTypes';
-
-function* callVerifySession() {
-  const currentUser = verifySession();
-  if (currentUser !== null) {
-    yield put(actions.verifyPreviousSessionSuccess(currentUser));
-  }
-  yield put(actions.detectPreviousSessionFailed());
-}
+// import { takeLeading, put } from 'redux-saga/effects';
+// import * as actions from './actions';
+// import ActionTypes from './actionTypes';
 
 export default function* sessionSaga() {
-  yield takeLeading(ActionTypes.VERIFY_PREVIOUS_SESSION, callVerifySession);
+  // yield takeLeading(ActionTypes.VERIFY_PREVIOUS_SESSION, callVerifySession);
 }

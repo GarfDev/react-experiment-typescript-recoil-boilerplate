@@ -6,6 +6,7 @@ import { Product } from '../types';
 import { detectProductHost } from '../actions';
 import { tikiParser } from '../adapters';
 import { productInitialState, adsLink } from '../constants';
+// import { handleGoogleLogin } from '../firebase';
 import Header from '../components/Header';
 import SearchBar from '../components/Search';
 import InfoContainer from '../components/Info';
@@ -18,6 +19,7 @@ export default function Homepage() {
   const dispatch = useDispatch();
   const { addToast } = useToasts();
   const [inputData, setInputData] = React.useState('');
+  // handleGoogleLogin();
   // Homepage States
   const [productPreview, setProductPreview] = React.useState(false);
   const [productLoading, setProductLoading] = React.useState(false);
@@ -96,7 +98,7 @@ export default function Homepage() {
       <Helmet>
         <meta charSet="utf-8" />
         <link rel="icon" href={favicon} type="image/gif" sizes="16x16"></link>
-        <title>Reminder - Powered by GarfDef</title>
+        <title>Reminder - Powered by GarfDev</title>
       </Helmet>
       <HomepageWrapper>
         <Header titles={['Reminder']} />
