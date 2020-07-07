@@ -23,7 +23,7 @@ ReactDOM.render(
 
 declare const module: any;
 if (module.hot) {
-  module.hot.accept(['./i18n'], () => {
+  module.hot.accept([], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
   });
 }
