@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // App
-import App from './modules/@core/App';
+import App from '@/modules/@core/App';
 // Cores
 import { RecoilRoot } from 'recoil';
 // router

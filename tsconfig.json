@@ -20,7 +20,10 @@
     "jsx": "react",
     "sourceMap": true,
     "skipLibCheck": true,
-    "baseUrl": "./app",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["app/*"]
+    },
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es5", "es6", "es7", "es2017", "ESNext.Array"],
     "types": ["jest", "node"],

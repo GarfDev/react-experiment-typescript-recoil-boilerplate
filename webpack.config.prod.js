@@ -73,4 +73,10 @@ module.exports = {
     }),
     new CompressionPlugin(),
   ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      '@': path.resolve(__dirname, './app'),
+    },
+  },
 };
