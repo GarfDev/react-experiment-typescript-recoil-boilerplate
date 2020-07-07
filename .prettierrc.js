@@ -1,7 +1,15 @@
 module.exports = {
-  semi: true,
-  trailingComma: "all",
+  arrowParens: 'avoid',
   singleQuote: true,
-  printWidth: 120,
-  tabWidth: 2
+  trailingComma: 'all',
+  bracketSpacing: false,
+  jsxBracketSameLine: true,
+  overrides: [
+    {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+      options: {
+        parser: 'flow',
+      },
+    },
+  ],
 };
