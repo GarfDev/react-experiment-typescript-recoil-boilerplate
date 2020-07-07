@@ -10,7 +10,7 @@ module.exports = {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
-  plugins: ['prettier', 'redux-saga', '@typescript-eslint', 'react-hooks', 'jsx-a11y', 'prettier', 'react'],
+  plugins: ['prettier', '@typescript-eslint', 'react-hooks', 'prettier', 'react'],
   globals: {},
   env: {
     jest: true,
