@@ -28,7 +28,7 @@
     "axios": "^0.21.1",
     "dotenv-webpack": "^1.7.0",
     "immutable": "^4.0.0-rc.12",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "offline-plugin": "^5.0.7",
     "react": "^0.14.0",
     "react-dom": "^0.0.0-experimental-7f28234f8",
